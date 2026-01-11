@@ -1,0 +1,86 @@
+:root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #333333;
+    --border: #dee2e6;
+    --header-bg: #217346; /* Excel Green */
+    --highlight: #fff3cd;
+}
+
+[data-theme="dark"] {
+    --bg: #121212;
+    --card: #1e1e1e;
+    --text: #e0e0e0;
+    --border: #444444;
+    --header-bg: #1a5c38;
+    --highlight: #3a321a;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 { text-align: center; margin-bottom: 20px; font-size: 24px; color: var(--header-bg); }
+
+.calendar-section {
+    background: var(--bg);
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.calendar-section input { padding: 8px; border: 1px solid var(--border); border-radius: 4px; }
+
+#day-info { margin-top: 10px; font-weight: bold; color: var(--header-bg); }
+
+.table-responsive { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    border: 2px solid var(--border);
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+th { background-color: var(--header-bg); color: white; }
+
+.time-slot { background-color: var(--bg); font-weight: bold; width: 140px; }
+
+/* Subject Color Coding (Excel style) */
+.eee { background-color: #e2f0d9 !important; color: #2e7d32; }
+.mat { background-color: #ddebf7 !important; color: #1565c0; }
+.cse { background-color: #fff2cc !important; color: #f57f17; }
+.cse-lab { background-color: #d9e1f2 !important; color: #283593; font-weight: bold; }
+.ban { background-color: #fbe5d6 !important; color: #d84315; }
+
+/* Highlight for selected day */
+.active-day {
+    background-color: var(--highlight) !important;
+    border: 2px solid #ffc107 !important;
+}
+
+/* Dark Mode Switch */
+.theme-toggle { display: flex; justify-content: flex-end; }
+.label { width: 40px; height: 20px; background-color: #111; border-radius: 50px; position: relative; cursor: pointer; display: flex; align-items: center; }
+.ball { width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; left: 2px; transition: 0.3s; }
+.checkbox:checked + .label .ball { transform: translateX(20px); }
+.checkbox { display: none; }
