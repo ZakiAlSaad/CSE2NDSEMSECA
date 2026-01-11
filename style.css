@@ -58,3 +58,22 @@ td { padding: 15px; border: 1px solid var(--border); text-align: center; }
 .label { width: 44px; height: 22px; background: #111; border-radius: 50px; position: relative; cursor: pointer; display: flex; align-items: center; }
 .ball { width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; left: 2px; transition: 0.3s; }
 .checkbox:checked + .label .ball { transform: translateX(22px); }
+
+/* সাবজেক্ট সেলের ভেতরে টেক্সট এলাইনমেন্ট ঠিক করার জন্য */
+.subject-cell {
+    line-height: 1.4;
+    padding: 10px 5px !important;
+    vertical-align: middle;
+}
+
+.subject-cell small {
+    display: block; /* নাম এবং রুম নম্বর আলাদা লাইনে দেখাবে */
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* ল্যাব ক্লাসের বড় টেক্সটের জন্য বিশেষ স্টাইল */
+.cse-lab {
+    font-size: 0.85rem;
+}
