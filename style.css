@@ -3,7 +3,7 @@
     --card: #ffffff;
     --text: #333333;
     --border: #dee2e6;
-    --header-bg: #217346; /* Excel Green */
+    --header-bg: #217346;
     --highlight: #fff3cd;
 }
 
@@ -16,71 +16,45 @@
     --highlight: #3a321a;
 }
 
-body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    padding: 20px;
-}
+body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; padding: 20px; transition: 0.3s; }
+.container { max-width: 1100px; margin: 0 auto; background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+header h1 { text-align: center; color: var(--header-bg); margin-bottom: 20px; }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: var(--card);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.calendar-section { background: var(--bg); padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+.calendar-section input { padding: 10px; border: 1px solid var(--border); border-radius: 5px; cursor: pointer; }
 
-header h1 { text-align: center; margin-bottom: 20px; font-size: 24px; color: var(--header-bg); }
+#day-info { margin-top: 10px; font-weight: bold; font-size: 1.1rem; color: #d35400; }
 
-.calendar-section {
-    background: var(--bg);
-    padding: 15px;
-    text-align: center;
-    border-radius: 6px;
-    margin-bottom: 20px;
-}
-
-.calendar-section input { padding: 8px; border: 1px solid var(--border); border-radius: 4px; }
-
-#day-info { margin-top: 10px; font-weight: bold; color: var(--header-bg); }
-
-.table-responsive { overflow-x: auto; }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
-    border: 2px solid var(--border);
-}
-
-th, td {
-    padding: 15px;
-    border: 1px solid var(--border);
-    text-align: center;
-}
-
-th { background-color: var(--header-bg); color: white; }
-
+/* Table Styling */
+.table-responsive { overflow-x: auto; transition: opacity 0.3s ease; }
+table { width: 100%; border-collapse: collapse; min-width: 850px; border: 1px solid var(--border); }
+th { background-color: var(--header-bg); color: white; padding: 15px; }
+td { padding: 15px; border: 1px solid var(--border); text-align: center; }
 .time-slot { background-color: var(--bg); font-weight: bold; width: 140px; }
 
-/* Subject Color Coding (Excel style) */
-.eee { background-color: #e2f0d9 !important; color: #2e7d32; }
-.mat { background-color: #ddebf7 !important; color: #1565c0; }
-.cse { background-color: #fff2cc !important; color: #f57f17; }
-.cse-lab { background-color: #d9e1f2 !important; color: #283593; font-weight: bold; }
-.ban { background-color: #fbe5d6 !important; color: #d84315; }
+/* Subject Colors */
+.eee { background: #e2f0d9 !important; color: #2e7d32; }
+.mat { background: #ddebf7 !important; color: #1565c0; }
+.cse { background: #fff2cc !important; color: #f57f17; }
+.cse-lab { background: #d9e1f2 !important; color: #283593; font-weight: bold; }
+.ban { background: #fbe5d6 !important; color: #d84315; }
 
-/* Highlight for selected day */
-.active-day {
-    background-color: var(--highlight) !important;
-    border: 2px solid #ffc107 !important;
+/* Holiday Box */
+.holiday-box {
+    text-align: center;
+    padding: 50px;
+    background: #fff5f5;
+    border: 2px dashed #ff7675;
+    border-radius: 10px;
+    margin: 20px 0;
 }
+.holiday-box h2 { color: #d63031; margin-bottom: 10px; }
 
-/* Dark Mode Switch */
+.active-day { background-color: var(--highlight) !important; border: 2.5px solid #ffc107 !important; }
+
+/* Dark Mode Toggle */
 .theme-toggle { display: flex; justify-content: flex-end; }
-.label { width: 40px; height: 20px; background-color: #111; border-radius: 50px; position: relative; cursor: pointer; display: flex; align-items: center; }
-.ball { width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; left: 2px; transition: 0.3s; }
-.checkbox:checked + .label .ball { transform: translateX(20px); }
 .checkbox { display: none; }
+.label { width: 44px; height: 22px; background: #111; border-radius: 50px; position: relative; cursor: pointer; display: flex; align-items: center; }
+.ball { width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; left: 2px; transition: 0.3s; }
+.checkbox:checked + .label .ball { transform: translateX(22px); }

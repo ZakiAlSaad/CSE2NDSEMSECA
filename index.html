@@ -17,16 +17,21 @@
                     <label for="checkbox" class="label"><span class="ball"></span></label>
                 </div>
             </div>
-            <h1>CSE 2nd Semester (Sec-A) Routine</h1>
+            <h1>CSE 2nd Semester (Sec-A)</h1>
             
             <div class="calendar-section">
                 <label>📅 Select Date:</label>
                 <input type="date" id="routine-date">
-                <div id="day-info">Today: <span></span></div>
+                <div id="day-info">Selected Day: <span></span></div>
             </div>
         </header>
 
-        <div class="table-responsive">
+        <div id="holiday-msg" class="holiday-box" style="display: none;">
+            <h2>🎉 Enjoy Your Holiday!</h2>
+            <p>Today is an <strong>Off Day</strong>. No classes scheduled.</p>
+        </div>
+
+        <div class="table-responsive" id="routine-wrapper">
             <table id="routine-table">
                 <thead>
                     <tr>
