@@ -23,3 +23,7 @@
 ১. রিপোজিটরি টি ক্লোন করুন:
    ```bash
    git clone [[https://github.com/your-username/class-routine-web.git]](https://github.com/ZakiAlSaad/CSE2NDSEMSECA.git)
+
+
+📸 স্ক্রিনশট
+![Screenshot](https://github.com/user-attachments/assets/e59a2358-7bf2-4087-b63f-8c269d4a383d)
