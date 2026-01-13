@@ -13,7 +13,7 @@ const routineData = {
         { time: "02:00 PM", sub: "BAN 0001", room: "Room: 106", teacher: "Most.Afshara Tasnim Ritu" }
     ],
     "Monday": [
-        { time: "09:00 AM", sub: "EEE 1232", room: "Room: 130 DSCAL", teacher: "Ipshita Tasnim Raha" },
+        { time: "09:00 AM", sub: "EEE 1232 (Lab)", room: "Room: 130 DSCAL", teacher: "Ipshita Tasnim Raha" },
         { time: "10:30 AM", sub: "MAT 1241", room: "Room: 311", teacher: "Md.Mizanur Rahman" },
         { time: "02:00 PM", sub: "CSE 1201", room: "Room: 512", teacher: "Md.Muktar Hossain" }
     ],
