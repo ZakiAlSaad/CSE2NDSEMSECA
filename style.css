@@ -20,16 +20,16 @@ body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sa
 .container { max-width: 1100px; margin: 0 auto; background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 header h1 { text-align: center; color: var(--header-bg); margin-bottom: 20px; }
 
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
 .calendar-section { background: var(--bg); padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
 .calendar-section input { padding: 10px; border: 1px solid var(--border); border-radius: 5px; cursor: pointer; }
-
 #day-info { margin-top: 10px; font-weight: bold; font-size: 1.1rem; color: #d35400; }
 
 /* Table Styling */
 .table-responsive { overflow-x: auto; transition: opacity 0.3s ease; }
 table { width: 100%; border-collapse: collapse; min-width: 850px; border: 1px solid var(--border); }
 th { background-color: var(--header-bg); color: white; padding: 15px; }
-td { padding: 15px; border: 1px solid var(--border); text-align: center; }
+td { padding: 15px; border: 1px solid var(--border); text-align: center; vertical-align: middle; }
 .time-slot { background-color: var(--bg); font-weight: bold; width: 140px; }
 
 /* Subject Colors */
@@ -39,18 +39,20 @@ td { padding: 15px; border: 1px solid var(--border); text-align: center; }
 .cse-lab { background: #d9e1f2 !important; color: #283593; font-weight: bold; }
 .ban { background: #fbe5d6 !important; color: #d84315; }
 
-/* Holiday Box */
-.holiday-box {
-    text-align: center;
-    padding: 50px;
-    background: #fff5f5;
-    border: 2px dashed #ff7675;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-.holiday-box h2 { color: #d63031; margin-bottom: 10px; }
-
 .active-day { background-color: var(--highlight) !important; border: 2.5px solid #ffc107 !important; }
+
+/* Toggle Button */
+.toggle-btn { background-color: var(--header-bg); color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+
+/* Teacher Name Logic */
+.teacher-name { display: none !important; color: #444; font-weight: 500; margin-top: 4px; background: rgba(255, 255, 255, 0.6); padding: 2px 5px; border-radius: 4px; font-size: 0.75rem; }
+[data-theme="dark"] .teacher-name { color: #ddd; background: rgba(0, 0, 0, 0.3); }
+body.show-teachers .teacher-name { display: block !important; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Holiday Box */
+.holiday-box { text-align: center; padding: 50px; background: #fff5f5; border: 2px dashed #ff7675; border-radius: 10px; margin: 20px 0; }
+.holiday-box h2 { color: #d63031; }
 
 /* Dark Mode Toggle */
 .theme-toggle { display: flex; justify-content: flex-end; }
@@ -59,144 +61,39 @@ td { padding: 15px; border: 1px solid var(--border); text-align: center; }
 .ball { width: 18px; height: 18px; background: white; border-radius: 50%; position: absolute; left: 2px; transition: 0.3s; }
 .checkbox:checked + .label .ball { transform: translateX(22px); }
 
-/* সাবজেক্ট সেলের ভেতরে টেক্সট এলাইনমেন্ট ঠিক করার জন্য */
-.subject-cell {
-    line-height: 1.4;
-    padding: 10px 5px !important;
-    vertical-align: middle;
-}
-
-.subject-cell small {
-    display: block; /* নাম এবং রুম নম্বর আলাদা লাইনে দেখাবে */
-    font-size: 0.8rem;
-    opacity: 0.9;
-    margin-top: 2px;
-}
-
-/* ল্যাব ক্লাসের বড় টেক্সটের জন্য বিশেষ স্টাইল */
-.cse-lab {
-    font-size: 0.85rem;
-}
-
-/* আগের CSS গুলোর নিচে এই অংশটুকু যোগ করুন বা আপডেট করুন */
-
-/* টপ বার এর স্টাইল */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-/* টগল বাটন ডিজাইন */
-.toggle-btn {
-    background-color: var(--header-bg);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.toggle-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
-/* টিচারদের নাম ডিফল্টভাবে লুকানো থাকবে */
-.teacher-name {
-    display: none; 
-    color: #444;
-    font-weight: 500;
-    margin-top: 4px;
-    background: #ffffff80;
-    padding: 2px 5px;
-    border-radius: 4px;
-}
-
-/* ডার্ক মোডে টিচারের নাম */
-[data-theme="dark"] .teacher-name {
-    color: #eee;
-    background: #00000040;
-}
-
-/* যখন show-teachers ক্লাস বডিতে থাকবে, তখন নাম দেখাবে */
-body.show-teachers .teacher-name {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* ফেড ইন এনিমেশন */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ---- আগের সব CSS কোড থাকবে ---- */
-
-/* টপ বার এর স্টাইল */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    gap: 10px;
-}
-
-/* টগল বাটন ডিজাইন */
-.toggle-btn {
-    background-color: var(--header-bg); /* এক্সেল গ্রিন কালার */
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.toggle-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
 /* =========================================
-   গুরুত্বপূর্ণ অংশ: টিচারদের নাম হাইড/শো করা
+   MOBILE RESPONSIVE VIEW (<576px)
    ========================================= */
+.mobile-schedule { display: none; } /* Default hide */
 
-/* ১. ডিফল্ট অবস্থায় নাম লুকানো থাকবে */
-.teacher-name {
-    display: none !important; /* !important দিলে অবশ্যই কাজ করবে */
-    color: #444;
-    font-weight: 500;
-    margin-top: 4px;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-}
+@media (max-width: 576px) {
+    #routine-wrapper { display: none !important; } /* Hide Table */
+    .mobile-schedule { display: block; margin-top: 20px; } /* Show Mobile View */
 
-/* ডার্ক মোডের জন্য */
-[data-theme="dark"] .teacher-name {
-    color: #ddd;
-    background: rgba(0, 0, 0, 0.3);
-}
+    .class-card {
+        background: var(--card);
+        border-left: 5px solid var(--header-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .card-time { font-weight: bold; color: #d35400; display: block; margin-bottom: 5px; }
+    .card-subject { font-size: 1.2rem; font-weight: 700; color: var(--text); }
+    .card-room { font-size: 0.9rem; color: #666; margin-top: 5px; }
+    [data-theme="dark"] .card-room { color: #aaa; }
 
-/* ২. যখন বডিতে 'show-teachers' ক্লাস থাকবে, তখন নাম দেখাবে */
-body.show-teachers .teacher-name {
-    display: block !important;
-    animation: fadeIn 0.4s ease;
-}
-
-/* এনিমেশন */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+    /* Mobile Teacher Name */
+    .mobile-teacher { 
+        display: none; 
+        margin-top: 10px; 
+        padding-top: 8px; 
+        border-top: 1px dashed var(--border); 
+        font-weight: 600; 
+        color: var(--header-bg);
+    }
+    
+    body.show-teachers .mobile-teacher { display: block; animation: fadeIn 0.3s ease; }
 }
