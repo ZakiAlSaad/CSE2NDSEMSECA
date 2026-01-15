@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Routine - CSE Sec A</title>
+    <title>Class Routine - CSE 2nd Sem</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -14,12 +14,25 @@
             <div class="top-bar">
                 <button id="teacher-toggle-btn" class="toggle-btn">Show Teacher Names</button>
 
-                <div class="theme-toggle">
-                    <input type="checkbox" id="checkbox" class="checkbox">
-                    <label for="checkbox" class="label"><span class="ball"></span></label>
+                <div class="right-controls">
+                    <select id="section-select" class="section-dropdown">
+                        <option value="A" selected>Section A</option>
+                        <option value="B">Section B</option>
+                        <option value="C">Section C</option>
+                        <option value="D">Section D</option>
+                        <option value="E">Section E</option>
+                        <option value="F">Section F</option>
+                        <option value="G">Section G</option>
+                    </select>
+
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="checkbox" class="checkbox">
+                        <label for="checkbox" class="label"><span class="ball"></span></label>
+                    </div>
                 </div>
             </div>
-            <h1>CSE 2nd Semester (Sec-A)</h1>
+            
+            <h1 id="header-title">CSE 2nd Semester (Sec-A)</h1>
             
             <div class="calendar-section">
                 <label>Select Date:</label>
@@ -33,6 +46,8 @@
             <p>Today is an <strong>Off Day</strong>. No classes scheduled.</p>
         </div>
 
+        <div id="mobile-view" class="mobile-schedule"></div>
+
         <div class="table-responsive" id="routine-wrapper">
             <table id="routine-table">
                 <thead>
@@ -45,52 +60,10 @@
                         <th id="Thu">Thursday</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="time-slot">09:00 AM</td>
-                        <td>-</td>
-                        <td class="subject-cell eee" data-day="Monday">EEE 1232 <br><small>Room: 130 DSCAL</small><br><small class="teacher-name">Ipshita Tasnim Raha</small></td>
-                        <td>-</td>
-                        <td class="subject-cell cse-lab" data-day="Wednesday" rowspan="2">CSE 1202 <br><small>Room: 129 SEL</small><br><small class="teacher-name">A.S.M Delwar Hossain & Md.Muktar Hossain</small></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">10:30 AM</td>
-                        <td>-</td>
-                        <td class="subject-cell mat" data-day="Monday">MAT 1241 <br><small>Room: 311</small><br><small class="teacher-name">Md.Mizanur Rahman</small></td>
-                        <td class="subject-cell eee" data-day="Tuesday">EEE 1231 <br><small>Room: 314</small><br><small class="teacher-name">Ipshita Tasnim Raha</small></td>
-                        <td class="subject-cell mat" data-day="Thursday">MAT 1241 <br><small>Room: 313</small><br><small class="teacher-name">Md.Mizanur Rahman</small></td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">12:00 PM</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td class="subject-cell ban" data-day="Thursday">BAN 0001 <br><small>Room: 106</small><br><small class="teacher-name">Most.Afshara Tasnim Ritu</small></td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">02:00 PM</td>
-                        <td class="subject-cell ban" data-day="Sunday">BAN 0001 <br><small>Room: 106</small><br><small class="teacher-name">Most.Afshara Tasnim Ritu</small></td>
-                        <td class="subject-cell cse" data-day="Monday">CSE 1201 <br><small>Room: 512</small><br><small class="teacher-name">Md.Muktar Hossain</small></td>
-                        <td>-</td>
-                        <td class="subject-cell cse" data-day="Wednesday">CSE 1201 <br><small>Room: 511</small><br><small class="teacher-name">Md.Muktar Hossain</small></td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td class="time-slot">03:30 PM</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td class="subject-cell cse" data-day="Tuesday">CSE 1203 <br><small>Room: 1013</small><br><small class="teacher-name">Sanjoy Kumar Chakravarty</small></td>
-                        <td class="subject-cell eee" data-day="Wednesday">EEE 1231 <br><small>Room: 812</small><br><small class="teacher-name">Ipshita Tasnim Raha</small></td>
-                        <td class="subject-cell cse" data-day="Thursday">CSE 1203 <br><small>Room: 1008</small><br><small class="teacher-name">Md.Muktar Hossain</small></td>
-                    </tr>
+                <tbody id="routine-body-content" class="routine-body">
                 </tbody>
             </table>
         </div>
-
-        <div id="mobile-view" class="mobile-schedule"></div>
-
     </div>
 
     <script src="script.js"></script>
