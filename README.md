@@ -25,4 +25,4 @@
 
 ১. রিপোজিটরি টি ক্লোন করুন:
    ```bash
-   git clone [[https://github.com/your-username/class-routine-web.git]](https://github.com/ZakiAlSaad/CSE2NDSEMSECA.git)
+   git clone https://github.com/ZakiAlSaad/CSE2NDSEMSECA.git
