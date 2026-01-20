@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Routine - CSE 2nd Sem</title>
+    <title>CSE Routine - Varendra University</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -25,9 +25,14 @@
                         <option value="G">Section G</option>
                     </select>
 
-                    <div class="theme-toggle">
-                        <input type="checkbox" id="checkbox" class="checkbox">
-                        <label for="checkbox" class="label"><span class="ball"></span></label>
+                    <div class="theme-toggle-wrapper">
+                        <input type="checkbox" id="theme-checkbox" class="theme-checkbox">
+                        <label for="theme-checkbox" class="theme-label">
+                            <div class="main-ball">
+                                <span class="sun">☀️</span>
+                                <span class="moon">🌙</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -35,9 +40,8 @@
             <h1 id="header-title">CSE 2nd Semester (Sec-A)</h1>
             
             <div class="calendar-section">
-                <label>Select Date:</label>
                 <input type="date" id="routine-date">
-                <div id="day-info">Selected Day: <span></span></div>
+                <div id="day-info" style="display: none;"><span></span></div>
             </div>
         </header>
 
@@ -60,8 +64,7 @@
                         <th id="Thu">Thursday</th>
                     </tr>
                 </thead>
-                <tbody id="routine-body-content" class="routine-body">
-                </tbody>
+                <tbody id="routine-body-content" class="routine-body"></tbody>
             </table>
         </div>
     </div>

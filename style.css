@@ -1,15 +1,10 @@
-/* =========================================
-   1. ROOT VARIABLES & GLOBAL STYLES
-   ========================================= */
 :root {
     --bg: #f4f7f6;
     --card-bg: #ffffff;
     --text: #333333;
     --border: #e0e0e0;
-    --header-bg: #217346; /* Excel Green */
+    --header-bg: #217346;
     --highlight: #fff3cd;
-    --primary-btn: #217346;
-    --btn-text: #ffffff;
     --shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
@@ -23,18 +18,14 @@
     --shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Inter', sans-serif;
     padding: 20px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s;
 }
 
 .container {
@@ -46,16 +37,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* =========================================
-   2. HEADER & CONTROLS
-   ========================================= */
-header h1 {
-    text-align: center;
-    color: var(--header-bg);
-    margin: 20px 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
+header h1 { text-align: center; color: var(--header-bg); margin: 20px 0; font-size: 1.8rem; }
 
 .top-bar {
     display: flex;
@@ -69,284 +51,108 @@ header h1 {
     border-radius: 12px;
 }
 
-.right-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+.right-controls { display: flex; align-items: center; gap: 15px; }
 
-/* Button & Dropdown */
 .toggle-btn {
-    background-color: var(--primary-btn);
-    color: var(--btn-text);
+    background-color: var(--header-bg);
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 0.9rem;
     font-weight: 600;
-    transition: transform 0.2s, background-color 0.2s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.toggle-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
 }
 
 .section-dropdown {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: var(--card-bg);
-    color: var(--text);
-    outline: none;
-}
-
-/* Calendar Section */
-.calendar-section {
-    background: var(--bg);
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    border: 1px solid var(--border);
-}
-
-.calendar-section label {
-    font-weight: 600;
-    margin-right: 10px;
-}
-
-.calendar-section input {
     padding: 8px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-#day-info {
-    margin-top: 8px;
-    font-weight: 700;
-    color: #d35400;
-    font-size: 1.1rem;
-}
-
-/* =========================================
-   3. DESKTOP TABLE STYLING
-   ========================================= */
-.table-responsive {
-    overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 900px;
-}
-
-th {
-    background-color: var(--header-bg);
-    color: white;
-    padding: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-td {
-    padding: 12px;
-    border: 1px solid var(--border);
-    text-align: center;
-    vertical-align: middle;
-    font-size: 0.95rem;
-    transition: background-color 0.2s;
-}
-
-.time-slot {
-    background-color: var(--bg);
-    font-weight: 700;
+    background: var(--card-bg);
     color: var(--text);
-    width: 110px;
 }
 
-/* Subject Colors (Based on Department) */
-.subject-cell {
-    border-radius: 6px;
-    font-weight: 500;
-    line-height: 1.5;
+/* Highlight Active Column */
+.active-day {
+    background-color: var(--highlight) !important; /* হালকা হলুদ বা ডার্ক মোড কালার */
+    border-left: 2px solid #19ee8a !important;     /* বামে কমলা বর্ডার */
+    border-right: 2px solid #19ee8a !important;    /* ডানে কমলা বর্ডার */
+    border-bottom: 2px solid #19ee8a !important;   /* নিচে কমলা বর্ডার */
+    transition: 0.3s ease;
 }
 
+/* Header Highlight Specific */
+th.active-day {
+    background-color: #000000 !important; /* হেডার একটু গাঢ় হবে */
+    border: 2px solid #4ffd0a !important;
+}
+
+/* Apple Style Theme Switch */
+.theme-toggle-wrapper { display: flex; align-items: center; }
+.theme-label {
+    width: 60px; height: 30px;
+    background-color: #333;
+    display: flex; border-radius: 50px;
+    position: relative; cursor: pointer;
+    transition: 0.4s;
+}
+.theme-checkbox { display: none; }
+.main-ball {
+    width: 24px; height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute; top: 3px; left: 3px;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.sun, .moon { font-size: 14px; position: absolute; transition: 0.3s; }
+.moon { opacity: 0; transform: translateY(15px); }
+.theme-checkbox:checked + .theme-label { background-color: #217346; }
+.theme-checkbox:checked + .theme-label .main-ball { transform: translateX(30px); }
+.theme-checkbox:checked + .theme-label .sun { opacity: 0; transform: translateY(-15px); }
+.theme-checkbox:checked + .theme-label .moon { opacity: 1; transform: translateY(0); }
+
+/* Centered Date Selector */
+.calendar-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.calendar-section input {
+    padding: 10px 15px;
+    border: 2px solid var(--header-bg);
+    border-radius: 8px;
+    font-weight: 600;
+    outline: none;
+    text-align: center;
+}
+
+/* Table Styling */
+.table-responsive { overflow-x: auto; border-radius: 12px; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 900px; }
+th { background-color: var(--header-bg); color: white; padding: 15px; }
+td { padding: 12px; border: 1px solid var(--border); text-align: center; }
+.time-slot { background: var(--bg); font-weight: bold; }
+
+.subject-cell { font-weight: 500; }
 .eee { background: #e2f0d9 !important; color: #2e7d32; }
 .mat { background: #ddebf7 !important; color: #1565c0; }
 .cse { background: #fff2cc !important; color: #f57f17; }
-.cse-lab { background: #d9e1f2 !important; color: #4a148c; font-weight: 700; border-left: 4px solid #7b1fa2; }
+.cse-lab { background: #d9e1f2 !important; color: #4a148c; font-weight: bold; border-left: 4px solid #8e44ad; }
 .ban { background: #fbe5d6 !important; color: #d84315; }
 
-/* Teacher Names (Hidden by Default) */
-.subject-cell small {
-    display: block;
-    font-size: 0.8rem;
-    margin-top: 4px;
-    opacity: 0.85;
-}
+.teacher-name { display: none !important; font-size: 0.8rem; margin-top: 5px; font-weight: bold; }
+body.show-teachers .teacher-name { display: block !important; }
 
-.teacher-name {
-    display: none !important; /* Hidden initially */
-    background: rgba(255, 255, 255, 0.7);
-    color: #000;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-top: 5px;
-    font-weight: 600;
-}
-
-/* Show Teacher Names when toggled */
-body.show-teachers .teacher-name {
-    display: block !important;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Highlight Active Day */
-.active-day {
-    background-color: var(--highlight) !important;
-    border: 2px solid #ffb300 !important;
-}
-
-/* Holiday Message */
-.holiday-box {
-    text-align: center;
-    padding: 40px;
-    background: #fff0f0;
-    border: 2px dashed #ff6b6b;
-    border-radius: 12px;
-    margin: 20px 0;
-    color: #c0392b;
-}
-
-/* =========================================
-   4. MOBILE VIEW STYLING (< 576px)
-   ========================================= */
-.mobile-schedule {
-    display: none; /* Hidden on Desktop */
-}
-
+/* Mobile View */
 @media (max-width: 576px) {
-    .container { padding: 15px; }
-    
-    /* Hide Table */
     #routine-wrapper { display: none !important; }
-    
-    /* Show Mobile View */
-    .mobile-schedule { display: block; margin-top: 10px; }
-    
-    .top-bar { justify-content: center; }
-    
-    /* Class Cards */
+    .mobile-schedule { display: block; }
     .class-card {
         background: var(--card-bg);
         border-left: 5px solid var(--header-bg);
-        border-radius: 10px;
-        padding: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        padding: 15px; margin-bottom: 15px;
+        border-radius: 10px; box-shadow: var(--shadow);
     }
-
-    .card-time {
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: #e67e22;
-        text-transform: uppercase;
-        background: #fff3e0;
-        display: inline-block;
-        padding: 3px 8px;
-        border-radius: 4px;
-        align-self: flex-start;
-    }
-
-    .card-subject {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--text);
-    }
-
-    .card-room {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-    }
-
-    /* Teacher in Mobile */
-    .mobile-teacher {
-        display: none; /* Hidden Default */
-        margin-top: 8px;
-        padding-top: 8px;
-        border-top: 1px dashed var(--border);
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #2980b9;
-    }
-
-    body.show-teachers .mobile-teacher {
-        display: block;
-        animation: fadeIn 0.3s ease;
-    }
-    
-    /* Dark Mode Adjustments for Mobile */
-    [data-theme="dark"] .card-time { background: #333; color: #f39c12; }
-    [data-theme="dark"] .class-card { background: #252525; }
-}
-
-/* =========================================
-   5. DARK MODE TOGGLE BUTTON
-   ========================================= */
-.theme-toggle {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox {
-    opacity: 0;
-    position: absolute;
-}
-
-.label {
-    width: 50px;
-    height: 26px;
-    background-color: #111;
-    display: flex;
-    border-radius: 50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid #555;
-}
-
-.ball {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50%;
-    transition: transform 0.2s linear;
-}
-
-.checkbox:checked + .label .ball {
-    transform: translateX(24px);
+    .mobile-teacher { display: none; margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 5px; font-weight: bold; }
+    body.show-teachers .mobile-teacher { display: block; }
 }
